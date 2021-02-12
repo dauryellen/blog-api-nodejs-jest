@@ -7,15 +7,15 @@ const generate = function () {
 };
 
 test("Should get posts", async function () {
-  const post1 = postsService.savePost({
+  const post1 = await postsService.savePost({
     title: generate(),
     content: generate(),
   });
-  const post2 = postsService.savePost({
+  const post2 = await postsService.savePost({
     title: generate(),
     content: generate(),
   });
-  const post3 = postsService.savePost({
+  const post3 = await postsService.savePost({
     title: generate(),
     content: generate(),
   });
