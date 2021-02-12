@@ -1,5 +1,9 @@
-const postData = require("../data/postsData");
+const postsData = require("../data/postsData");
 
 exports.getPosts = function () {
-  return postData.getPosts();
+  return postsData.getPosts();
+};
+
+exports.savePost = function (post) {
+  return postsData.savePost(post);
 };
