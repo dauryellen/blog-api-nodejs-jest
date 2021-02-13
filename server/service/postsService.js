@@ -4,7 +4,7 @@ exports.getPosts = function () {
   return postsData.getPosts();
 };
 
-exports.getPost = function () {
+exports.getPost = function (id) {
   return postsData.getPost(id);
 };
 

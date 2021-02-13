@@ -15,7 +15,7 @@ router.post("/posts", async function (req, res) {
 
 router.put("/posts/:id", async function (req, res) {
   const post = req.body;
-  await postsService.updatedPost(req.params.id, post);
+  await postsService.updatePost(req.params.id, post);
   res.end();
 });
 

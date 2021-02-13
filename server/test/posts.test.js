@@ -48,7 +48,7 @@ test("Should save a post", async function () {
   await postsService.deletePost(post.id);
 });
 
-test.only("Should update a post", async function () {
+test("Should update a post", async function () {
   const post = await postsService.savePost({
     title: generate(),
     content: generate(),
@@ -63,4 +63,4 @@ test.only("Should update a post", async function () {
   expect(updatedPost.title).toBe(post.title);
   expect(updatedPost.content).toBe(post.content);
   await postsService.deletePost(post.id);
-}, 6000);
+});
