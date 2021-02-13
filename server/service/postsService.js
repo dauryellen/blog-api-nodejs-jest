@@ -4,6 +4,10 @@ exports.getPosts = function () {
   return postsData.getPosts();
 };
 
+exports.getPost = function () {
+  return postsData.getPost(id);
+};
+
 exports.savePost = function (post) {
   return postsData.savePost(post);
 };
