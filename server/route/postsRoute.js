@@ -7,4 +7,9 @@ router.get("/posts", async function (req, res) {
   res.json(posts);
 });
 
+router.post("/posts", async function (req, res) {
+  console.log(req.body);
+  res.end();
+})
+
 module.exports = router;
