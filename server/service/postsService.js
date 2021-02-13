@@ -11,3 +11,7 @@ exports.savePost = function (post) {
 exports.deletePost = function (id) {
   return postsData.deletePost(id);
 };
+
+exports.updatePost = function (id, post) {
+  return postsData.updatePost(id, post);
+};
