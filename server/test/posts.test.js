@@ -6,6 +6,10 @@ const generate = function () {
   return crypto.randomBytes(20).toString("hex");
 };
 
+const request = function (url, method, data) {
+  return axios({ url, method, data });
+};
+
 test("Should get posts", async function () {
   const post1 = await postsService.savePost({
     title: generate(),
@@ -20,10 +24,7 @@ test("Should get posts", async function () {
     content: generate(),
   });
 
-  const response = await axios({
-    url: "http://localhost:3000/posts",
-    method: "get",
-  });
+  const response = await request("http://localhost:3000/posts", "get");
 
   const posts = response.data;
 
@@ -31,4 +32,18 @@ test("Should get posts", async function () {
   await postsService.deletePost(post1.id);
   await postsService.deletePost(post2.id);
   await postsService.deletePost(post3.id);
+});
+
+test.only("Should save posts", async function () {
+  const data = {
+    title: generate(),
+    content: generate(),
+  };
+
+   const response = await request("http://localhost:3000/posts", "post", data);
+
+  const post = response.data;
+  expect(post.title).toBe(data.title);
+  expect(post.content).toBe(data.content);
+  await postsService.deletePost(post.id);
 });
