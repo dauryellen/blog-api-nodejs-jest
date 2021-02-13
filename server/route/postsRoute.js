@@ -8,8 +8,9 @@ router.get("/posts", async function (req, res) {
 });
 
 router.post("/posts", async function (req, res) {
-  console.log(req.body);
-  res.end();
-})
+  const post = req.body;
+  const newPost = await postsService.savePost(post);
+  res.json(newPost);
+});
 
 module.exports = router;

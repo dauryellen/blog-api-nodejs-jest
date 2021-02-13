@@ -34,13 +34,13 @@ test("Should get posts", async function () {
   await postsService.deletePost(post3.id);
 });
 
-test.only("Should save posts", async function () {
+test("Should save posts", async function () {
   const data = {
     title: generate(),
     content: generate(),
   };
 
-   const response = await request("http://localhost:3000/posts", "post", data);
+  const response = await request("http://localhost:3000/posts", "post", data);
 
   const post = response.data;
   expect(post.title).toBe(data.title);
