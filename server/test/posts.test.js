@@ -64,3 +64,14 @@ test("Should update a post", async function () {
   expect(updatedPost.content).toBe(post.content);
   await postsService.deletePost(post.id);
 });
+
+test("Should delete a post", async function () {
+  const post = await postsService.savePost({
+    title: generate(),
+    content: generate(),
+  });
+
+  await request(`http://localhost:3000/posts/${post.id}`, "delete");
+  const posts = await postsService.getPosts();
+  expect(posts).toHaveLength(0);
+});
